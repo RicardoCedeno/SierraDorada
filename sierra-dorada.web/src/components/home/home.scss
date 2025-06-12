@@ -1,0 +1,105 @@
+
+$text-color: #E5E1E6;
+$secondary-color: #B3A269;
+$white-color: #E5E1E6;
+
+.title-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+h1{
+    font-size: 10px; // texto grande por defecto (60px)
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.01562em;
+    text-align: center;
+    font-size: 4rem; // 96px
+}
+.main-text{
+    color: #B3A269;
+}
+
+.text{
+    text-align: center;
+}
+
+.main-text-secondary{
+    background: linear-gradient(to right, #B3A269, #E5E1E6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text; // Para compatibilidad adicional
+
+}
+
+.main-button-background{
+    color: black;
+    border-radius: 9999px;
+    background: $secondary-color;
+    text-align: center;
+    &:hover{
+        transform: scale(1.05);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        transition: 0.3s;
+    }
+}
+
+.main-button-transparent{
+    color: $secondary-color;
+    border-radius: 9999px;
+    border: #B3A269 2px solid;
+    text-align: center;
+    &:hover{
+        background: $secondary-color;
+        color: black;
+        transform: scale(1.05);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        transition: 0.3s;
+    }
+}
+
+.buttons-container{
+    display: flex;
+    flex-direction: row;
+    padding-top: 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.section-with-bg {
+    margin-top: 20px;
+    position: relative;
+    background-image: url('https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=2000&q=80'); // o dinámico en React
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh; // o el alto que necesites
+  
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-color: rgba(42, 42, 42, 0.6); // oscurece la imagen
+      z-index: 1;
+    }
+  
+    .content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      height: 100%;
+      color: white;
+      text-align: center;
+    }
+  }
+
+  .cards-container{
+    img{
+        width: 30vw;
+    }
+  }
+  
+  

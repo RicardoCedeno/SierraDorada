@@ -1,0 +1,36 @@
+$highlighted-color: #B3A269;
+$backgroud-color: #2A2A2A;
+
+.utils-button{
+    background: $highlighted-color;
+}
+
+.menu-container{
+    background: $backgroud-color;
+    color: white;
+}
+
+nav {
+    a {
+      text-decoration: none;
+      color: inherit;
+  
+      &:hover {
+        color: $highlighted-color;
+      }
+    }
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    font-size: 16px;
+    
+    .register-button{
+        background: $highlighted-color;
+        color: white;
+        border-radius: 9999px;
+
+        &:hover{
+            background-color: rgba(179, 162, 105, 0.9);
+        }
+    }
+  }
