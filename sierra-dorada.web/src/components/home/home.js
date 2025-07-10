@@ -1,5 +1,4 @@
 import { Button } from 'primereact/button'
-import { useState } from 'react'
 import { imagesCardsUrl } from '../../utils/images'
 import './home.scss'
 function Home() {
