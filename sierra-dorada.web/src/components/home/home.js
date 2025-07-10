@@ -32,7 +32,7 @@ function Home() {
                     <div className='cards-container flex flex-column sm:flex-row gap-4'>
                         {cards.map((card, index)=>(
                             <div key={index}>
-                                <img className='w-12 sm:w-12' src={card.imageUrl}></img>
+                                <img alt='etiqueta' className='w-12 sm:w-12' src={card.imageUrl}></img>
                                 <div>{card.title}</div>
                                 <div>{card.description}</div>
                             </div>
