@@ -3,11 +3,11 @@ import { useState } from 'react'
 import { imagesCardsUrl } from '../../utils/images'
 import './home.scss'
 function Home() {
-    const cards = useState([
+    const cards = [
         {imageUrl: imagesCardsUrl.image1Url, title: 'Selección de Ingredientes', description: 'Ingredientes locales de la más alta calidad'},
         {imageUrl: imagesCardsUrl.image2Url, title: 'Proceso de Elaboración', description: 'Técnicas artesanales tradicionales'},
         {imageUrl: imagesCardsUrl.image3Url, title: 'Resultado Final', description: 'Cervezas únicas y llenas de carácter'},
-    ])
+    ]
 
     return (
         <div>
