@@ -8,7 +8,6 @@ import OurServices from './components/our-services/our.services';
 import Contact from './components/contact/contact';
 import Cart from './components/cart/cart';
 import Login from './components/Login/sesion';
-import { PrimeReactProvider } from 'primereact/api';
 import { Sidebar } from 'primereact/sidebar';
 import { Button } from 'primereact/button';
 import "primereact/resources/themes/lara-light-cyan/theme.css";

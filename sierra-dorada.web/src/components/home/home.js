@@ -1,9 +1,8 @@
 import { Button } from 'primereact/button'
 import { useState } from 'react'
-import { homeImageSection2, imagesCardsUrl } from '../../utils/images'
 import './home.scss'
 function Home() {
-    const [cards, setCards] = useState([
+    const cards = useState([
         {imageUrl: imagesCardsUrl.image1Url, title: 'Selección de Ingredientes', description: 'Ingredientes locales de la más alta calidad'},
         {imageUrl: imagesCardsUrl.image2Url, title: 'Proceso de Elaboración', description: 'Técnicas artesanales tradicionales'},
         {imageUrl: imagesCardsUrl.image3Url, title: 'Resultado Final', description: 'Cervezas únicas y llenas de carácter'},
