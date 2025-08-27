@@ -77,7 +77,7 @@ function Home() {
 
             <div className='section-cards mt-8 mb-8'>
                 <div className='cards-text-container'>
-                    <div className='card-text flex flex-row gap-3'>
+                    <div className='card-text flex flex-column sm:flex-row gap-3'>
                         {cardsTexts.slice(0, 3).map((card, index) => (
                             <div className='card-only p-4' key={index}>
                                 <span className='svg-circle'><img src={card.svgDrwaw} alt={card.title}></img></span>
@@ -93,7 +93,7 @@ function Home() {
 
             <div className='section-cards mt-8 mb-8'>
                 <div className='cards-text-container'>
-                    <div className='card-text flex flex-row gap-3'>
+                    <div className='card-text flex flex-column sm:flex-row gap-3'>
                         {cardsTexts.slice(3, 6).map((card, index) => (
                             <div className='card-only p-4' key={index}>
                                 <span className='svg-circle'><img src={card.svgDrwaw} alt={card.title}></img></span>
@@ -122,19 +122,19 @@ function Home() {
                 <div className='small-text w-6 text-center mt-4'>Al suscribirte, aceptas recibir correos electrónicos de marketing de Sierra Dorada. Puedes darte de baja en cualquier momento.</div>
             </div>
 
-            <div className='section-dark flex flex-row align-items-center mt-4'>
-                <div className='w-4'>Cervecería artesanal comprometida con la calidad y la tradición cervecera desde 2010.</div>
-                <div className='flex flex-column w-4 gap-3'>
+            <div className='section-dark flex flex-column sm:flex-row align-items-center mt-4'>
+                <div className='col-4'>Cervecería artesanal comprometida con la calidad y la tradición cervecera desde 2010.</div>
+                <div className='flex flex-column col-12 sm:col-4 gap-3'>
                     <div className='subtitle-gold-style'>Enlaces Rápidos</div>
                     <div>Inicio</div>
                     <div>Productos</div>
                     <div>Nuestra Leyenda</div>
                     <div>Contacto</div>
                 </div>
-                <div className='flex flex-column w-4 gap-3'>
+                <div className='flex flex-column col-12 sm:col-4 gap-3'>
                     <div className='subtitle-gold-style'>Contacto</div>
-                    <div>+57 313 871 8154</div>
-                    <div>contacto@sierradorada.co</div>
+                    <div style={{wordBreak: 'break-all'}}>+57 313 871 8154</div>
+                    <div style={{wordBreak: 'break-all'}}>contacto@sierradorada.co</div>
                 </div>
             </div>
             

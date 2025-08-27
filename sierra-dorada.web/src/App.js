@@ -18,7 +18,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <div className="p-3 menu-container">
+      <div className="menu-container">
 
         {/* Botón solo visible en móvil */}
         <Button
