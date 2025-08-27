@@ -3,6 +3,9 @@ $text-color: #E5E1E6;
 $secondary-color: #B3A269;
 $white-color: #E5E1E6;
 
+$focus-ring: red;
+
+
 .title-container{
     display: flex;
     flex-direction: column;
@@ -73,7 +76,7 @@ h1{
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    height: 100vh; // o el alto que necesites
+    min-height: 100vh; // o el alto que necesites
   
     &::before {
       content: '';
@@ -100,6 +103,74 @@ h1{
     img{
         width: 30vw;
     }
+  }
+
+  .svg-circle{
+    background: #433F35;
+    padding: 20px;
+    margin: auto;
+    display: inline-flex;       /* ocupa solo el espacio del contenido */
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+.card-only {
+    background: #252527;
+    text-align: center;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    transition: border-color 0.8s ease, background-color 0.3s ease;
+  
+    &:hover {
+      border: 1px solid #B3A269;
+    }
+  }
+
+  .separator{
+    border: none;
+    height: 0.1px;
+    background-color: #B3A269;
+  }
+
+  .section-dark{
+    background: #242424;
+    text-align: center;
+    border: 1px solid #B3A269;
+  }
+
+  .text-style-2{
+    color: #e5e1e6cc;
+    font-size: 20px;
+  }
+
+  .input-text-style{
+    background: #242424;
+    border-radius: 30px;
+  }
+
+  .small-text{
+    color: #e5e1e6cc;
+    font-size: 14px;
+  }
+
+  .inputtext-style{
+    border: #B3A269 solid 1px;
+    border-color: #B3A269;
+    &:hover{
+        border: #B3A269 solid 1px; 
+    }
+  }
+
+  .p-inputtext:enabled:focus {
+    border-color: #B3A269;
+    box-shadow: 0 0 0 0.2rem #B3A269
+  }
+
+  .subtitle-gold-style{
+    color: #B3A269;
+    font-size: 20px;
+    font-weight: 600;
   }
   
   
