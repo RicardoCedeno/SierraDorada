@@ -112,7 +112,7 @@ function Home() {
             </div>
 
             <div className='section-join mt-8 bt-8 flex flex-column justify-content-center align-items-center'>
-                <span className='svg-circle'><img src={MountainIcon}></img></span>
+                <span className='svg-circle'><img src={MountainIcon} alt="icono"></img></span>
                 <h1>Únete a la Leyenda</h1>
                 <div className='text-style-2 text-center w-9'>Suscríbete para recibir noticias, eventos exclusivos y ofertas especiales de Sierra Dorada directamente en tu bandeja de entrada.</div>
                 <div className='flex flex-column sm:flex-row gap-3 mt-4 col-12 justify-content-center align-items-center'>
