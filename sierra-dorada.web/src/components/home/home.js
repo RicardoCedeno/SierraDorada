@@ -137,6 +137,7 @@ function Home() {
                     <div>contacto@sierradorada.co</div>
                 </div>
             </div>
+            
         </div>
 
     )
