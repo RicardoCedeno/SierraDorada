@@ -122,24 +122,36 @@ function Home() {
                 <div className='small-text w-6 text-center mt-4'>Al suscribirte, aceptas recibir correos electrónicos de marketing de Sierra Dorada. Puedes darte de baja en cualquier momento.</div>
             </div>
 
-            <div className='section-dark flex flex-column sm:flex-row align-items-center mt-4'>
-                <div className='col-4'>Cervecería artesanal comprometida con la calidad y la tradición cervecera desde 2010.</div>
-                <div className='flex flex-column col-12 sm:col-4 gap-3'>
-                    <div className='subtitle-gold-style'>Enlaces Rápidos</div>
-                    <div>Inicio</div>
-                    <div>Productos</div>
-                    <div>Nuestra Leyenda</div>
-                    <div>Contacto</div>
+            <div className='flex flex-column section-dark p-4 mt-4'>
+                <div className='flex flex-column sm:flex-row align-items-center mt-4'>
+                    <div className='col-4'>Cervecería artesanal comprometida con la calidad y la tradición cervecera desde 2010.</div>
+                    <div className='flex flex-column col-12 sm:col-4 gap-3'>
+                        <div className='subtitle-gold-style'>Enlaces Rápidos</div>
+                        <div>Inicio</div>
+                        <div>Productos</div>
+                        <div>Nuestra Leyenda</div>
+                        <div>Contacto</div>
+                    </div>
+                    <div className='flex flex-column col-12 sm:col-4 gap-3'>
+                        <div className='subtitle-gold-style'>Contacto</div>
+                        <div className='text-link' style={{ wordBreak: 'break-all' }}><span><i class="fa fa-phone fa-lg icon-outline"></i></span> +57 313 871 8154</div>
+                        <div className='text-link' style={{ wordBreak: 'break-all' }}><span><i class="fa fa-envelope fa-lg icon-outline"></i></span> contacto@sierradorada.co</div>
+                    </div>
                 </div>
-                <div className='flex flex-column col-12 sm:col-4 gap-3'>
-                    <div className='subtitle-gold-style'>Contacto</div>
-                    <div style={{wordBreak: 'break-all'}}>+57 313 871 8154</div>
-                    <div style={{wordBreak: 'break-all'}}>contacto@sierradorada.co</div>
+                <div className=' mt-4 flex flex-column sm:flex-row gap-3 justify-content-center align-items-center'>
+                    <span><i class="fa fa-facebook fa-lg icon-link" aria-hidden="true"></i></span>
+                    <span><i class="fa fa-instagram fa-lg icon-link" aria-hidden="true"></i></span>
+                    <span><i class="fa fa-linkedin fa-lg icon-link" aria-hidden="true"></i></span>
+                    <span><i class="fa fa-whatsapp fa-lg icon-link" aria-hidden="true"></i></span>
                 </div>
             </div>
-            
-        </div>
 
+            <div className='text-center mt-4'>
+                <div>© 2025 Sierra Dorada. Todos los derechos reservados.</div>
+                <div>EL EXCESO DE ALCOHOL ES PERJUDICIAL PARA LA SALUD. PROHÍBASE EL EXPENDIO DE BEBIDAS EMBRIAGANTES A MENORES DE EDAD.</div>
+            </div>
+
+        </div>
     )
 }
 
