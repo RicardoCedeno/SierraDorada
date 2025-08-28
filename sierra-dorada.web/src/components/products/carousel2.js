@@ -69,7 +69,7 @@ export default function Carousel2() {
     };
 
     return (
-        <div className="card">
+        <div className="card w-12">
             <Carousel autoplayInterval={3000} circular value={products} numVisible={3} numScroll={3} responsiveOptions={responsiveOptions} itemTemplate={productTemplate} />
         </div>
     )
