@@ -1,7 +1,5 @@
 import './products.scss'
-import { Galleria } from 'primereact/galleria';
-import { PhotoService } from './service/PhotoService';
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Carousel from './carousel';
 import Carousel2 from './carousel2';
 
