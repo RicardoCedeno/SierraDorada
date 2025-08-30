@@ -1,9 +1,14 @@
 import { useRef, useState, useEffect } from "react";
 import "./carousel.scss";
+import { imageCarousel } from "../classes/image-carousel";
 
-export default function Carousel({ imagesList }) {
+
+type carouselProps = {
+  imagesList: imageCarousel[];
+}
+export default function Carousel({ imagesList }: carouselProps) {
   const items = imagesList;
-  const trackRef = useRef(null);
+  const trackRef = useRef<HTMLDivElement>(null);
 
   const [isDragging, setIsDragging] = useState(false);
 
@@ -11,23 +16,23 @@ export default function Carousel({ imagesList }) {
   const lastXRef = useRef(0);  // última posición del mouse
   const velocityRef = useRef(0); // velocidad de arrastre
   const speed = 0.5; // velocidad de auto-scroll
-  const inertiaRef = useRef(null); // RAF para inercia
+  const inertiaRef = useRef<number | null>(null);
 
   // animación automática
   useEffect(() => {
-    let rafId;
+    let rafId: any;
 
     const animate = () => {
       if (!isDragging && velocityRef.current === 0) {
         let next = offsetRef.current - speed;
-        const trackWidth = trackRef.current.scrollWidth / 2;
+        const trackWidth = trackRef.current!.scrollWidth / 2;
 
         if (Math.abs(next) >= trackWidth) {
           next = 0;
         }
 
         offsetRef.current = next;
-        trackRef.current.style.transform = `translateX(${next}px)`;
+        trackRef.current!.style.transform = `translateX(${next}px)`;
       }
       rafId = requestAnimationFrame(animate);
     };
@@ -36,21 +41,21 @@ export default function Carousel({ imagesList }) {
     return () => cancelAnimationFrame(rafId);
   }, [isDragging]);
 
-  const handleMouseDown = (e) => {
+  const handleMouseDown = (e: any) => {
     e.preventDefault();
     setIsDragging(true);
-    cancelAnimationFrame(inertiaRef.current); // cortar inercia previa
+    cancelAnimationFrame(inertiaRef.current!); // cortar inercia previa
     lastXRef.current = e.clientX;
     velocityRef.current = 0;
   };
 
-  const handleMouseMove = (e) => {
+  const handleMouseMove = (e: any) => {
     if (!isDragging) return;
     e.preventDefault();
 
     const delta = e.clientX - lastXRef.current;
     offsetRef.current += delta;
-    trackRef.current.style.transform = `translateX(${offsetRef.current}px)`;
+    trackRef.current!.style.transform = `translateX(${offsetRef.current}px)`;
 
     velocityRef.current = delta; // guardar velocidad del último frame
     lastXRef.current = e.clientX;
@@ -63,7 +68,7 @@ export default function Carousel({ imagesList }) {
     const step = () => {
       if (Math.abs(velocityRef.current) > minVelocity) {
         offsetRef.current += velocityRef.current;
-        trackRef.current.style.transform = `translateX(${offsetRef.current}px)`;
+        trackRef.current!.style.transform = `translateX(${offsetRef.current}px)`;
         velocityRef.current *= friction; // aplicar freno
         inertiaRef.current = requestAnimationFrame(step);
       } else {

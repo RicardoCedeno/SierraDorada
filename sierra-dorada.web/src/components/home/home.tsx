@@ -134,15 +134,15 @@ function Home() {
                     </div>
                     <div className='flex flex-column col-12 sm:col-4 gap-3'>
                         <div className='subtitle-gold-style'>Contacto</div>
-                        <div className='text-link' style={{ wordBreak: 'break-all' }}><span><i class="fa fa-phone fa-lg icon-outline"></i></span> +57 313 871 8154</div>
-                        <div className='text-link' style={{ wordBreak: 'break-all' }}><span><i class="fa fa-envelope fa-lg icon-outline"></i></span> contacto@sierradorada.co</div>
+                        <div className='text-link' style={{ wordBreak: 'break-all' }}><span><i className="fa fa-phone fa-lg icon-outline"></i></span> +57 313 871 8154</div>
+                        <div className='text-link' style={{ wordBreak: 'break-all' }}><span><i className="fa fa-envelope fa-lg icon-outline"></i></span> contacto@sierradorada.co</div>
                     </div>
                 </div>
                 <div className=' mt-4 flex flex-column sm:flex-row gap-3 justify-content-center align-items-center'>
-                    <span><i class="fa fa-facebook fa-lg icon-link" aria-hidden="true"></i></span>
-                    <span><i class="fa fa-instagram fa-lg icon-link" aria-hidden="true"></i></span>
-                    <span><i class="fa fa-linkedin fa-lg icon-link" aria-hidden="true"></i></span>
-                    <span><i class="fa fa-whatsapp fa-lg icon-link" aria-hidden="true"></i></span>
+                    <span><i className="fa fa-facebook fa-lg icon-link" aria-hidden="true"></i></span>
+                    <span><i className="fa fa-instagram fa-lg icon-link" aria-hidden="true"></i></span>
+                    <span><i className="fa fa-linkedin fa-lg icon-link" aria-hidden="true"></i></span>
+                    <span><i className="fa fa-whatsapp fa-lg icon-link" aria-hidden="true"></i></span>
                 </div>
             </div>
 
