@@ -1,7 +1,18 @@
 import './products.scss'
 import React from 'react';
-import Carousel from './carousel';
-import Carousel2 from './carousel2';
+import carouselImage1 from '../../assets/images/carousel/carousel_products_image_1.avif'
+import carouselImage2 from '../../assets/images/carousel/carousel_products_image_2.avif'
+import carouselImage3 from '../../assets/images/carousel/carousel_products_image_3.avif'
+import carouselImage4 from '../../assets/images/carousel/carousel_products_image_4.avif'
+import Carousel from '../shared/carousel';
+
+const imagesCarousel = [
+    {title: 'Barley Wine', price: 18000, inspiration: 'Inspirada en Bochica, héroe civilizador', description: 'Sabiduría líquida. Potente como las enseñanzas de Bochica. guía eterno de los Muiscas', details: {abv: 10, ibu: 50, temperatureRange: '12-14 °C'}, pairing: [{image: '', name: 'Quesos añejos'}, {image: '', name: 'Postres de caramelo'}, {image: '', name: 'Chocolate negro'}], imageUrl: carouselImage1},
+    {title: 'Imagen 2', inspiration: 'Inspirada en Bochica, héroe civilizador', description: 'Sabiduría líquida. Potente como las enseñanzas de Bochica. guía eterno de los Muiscas', details: {abv: 10, ibu: 50, temperatureRange: '12-14 °C'}, pairing: [{image: '', name: 'Quesos añejos'}, {image: '', name: 'Postres de caramelo'}, {image: '', name: 'Chocolate negro'}], imageUrl: carouselImage2,},
+    {title: 'Imagen 3', inspiration: 'Inspirada en Bochica, héroe civilizador', description: 'Sabiduría líquida. Potente como las enseñanzas de Bochica. guía eterno de los Muiscas', details: {abv: 10, ibu: 50, temperatureRange: '12-14 °C'}, pairing: [{image: '', name: 'Quesos añejos'}, {image: '', name: 'Postres de caramelo'}, {image: '', name: 'Chocolate negro'}], imageUrl: carouselImage3},
+    {title: 'Imagen 4', inspiration: 'Inspirada en Bochica, héroe civilizador', description: 'Sabiduría líquida. Potente como las enseñanzas de Bochica. guía eterno de los Muiscas', details: {abv: 10, ibu: 50, temperatureRange: '12-14 °C'}, pairing: [{image: '', name: 'Quesos añejos'}, {image: '', name: 'Postres de caramelo'}, {image: '', name: 'Chocolate negro'}], imageUrl: carouselImage4}
+
+]
 
 
 function Products() {
@@ -18,8 +29,7 @@ function Products() {
                 <div className='text-style-2 w-6'>Cada cerveza es una obra maestra artesanal que honra a las deidades Muiscas, elaborada con los mejores ingredientes y años de experiencia.</div>
             </div>
             <div className='flex flex-column justify-content-center align-items-center'>
-                <Carousel2></Carousel2>
-                <Carousel></Carousel>
+                <Carousel imagesList={imagesCarousel}></Carousel>
             </div>
         </div>
     )
