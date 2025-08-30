@@ -1,37 +1,26 @@
 .carousel-container {
-    width: 95vw; /* donde entran 3 imágenes */
+    width: 95vw;
     overflow: hidden;
+    cursor: pointer;
   }
   
   .carousel-track {
     display: flex;
     gap: 4rem;
-    width: max-content; /* <--- evita que se contraiga */
-    animation: scroll 20s linear infinite;
+    width: max-content;
+    will-change: transform;
   }
   
   .carousel-item {
     flex: 0 0 auto;
     width: 25vw;
-    height: auto; /* se adapta */
-    overflow: hidden;
     display: flex;
-    flex-direction: column; /* 👈 apila img y texto */
+    flex-direction: column;
   }
   
   .carousel-item img {
     height: 250px;
     width: 100%;
     object-fit: cover;
-  }
-  
-  
-  @keyframes scroll {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translateX(-50%); /* desplaza medio track (porque duplicamos) */
-    }
   }
   
