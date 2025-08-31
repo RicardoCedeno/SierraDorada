@@ -98,3 +98,14 @@ nav {
   font-size: 1.2rem;
   font-weight: 500;
 }
+
+.p-button:focus{
+  box-shadow: 0 0 0 2px $highlighted-color, 0 0 0 4px $highlighted-color, 0 1px 2px 0 rgb(0, 0, 0);
+}
+
+.filled-icon{
+  color: transparent;
+  /* Sin relleno */
+  -webkit-text-stroke: 0.8px black;
+  cursor: pointer;
+}

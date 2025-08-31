@@ -53,3 +53,29 @@ $white-color: #E5E1E6;
 .carousel{
   cursor: pointer;
 }
+
+
+%button-shared {
+  padding: 1rem 1.5rem;
+  font-weight: 400;
+  border-radius: 9999px;
+  border: 1px solid $gold-color;
+  cursor: pointer
+}
+
+.selected-button {
+  @extend %button-shared;
+  color: #000000;
+  background: $gold-color;
+}
+
+.unselected-button {
+  @extend %button-shared;
+  color: $gold-color;
+  background: transparent;
+  &:hover {
+    color: $gold-color;
+    background: $gold-color;
+    color: black;
+  }
+}

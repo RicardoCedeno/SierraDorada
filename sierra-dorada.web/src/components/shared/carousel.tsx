@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { imageCarousel } from "../classes/image-carousel";
 import './carousel.scss'
+import { Button } from "primereact/button";
 
 type CarouselProps = {
   imagesList: imageCarousel[];
@@ -128,9 +129,9 @@ export default function Carousel({ imagesList }: CarouselProps) {
               <button
                 key={speed}
                 onClick={() => handleSpeedChange(speed)}
-                className={`p-2 border-round font-bold ${scrollSpeed === speed
-                  ? "bg-yellow-600 text-black shadow-2"
-                  : "p-button-outlined text-yellow-600 border-yellow-600"
+                className={`${scrollSpeed === speed
+                  ? "selected-button font-roboto"
+                  : "unselected-button font-roboto"
                   }`}
               >
                 {speed === 0.25 ? "Lento" : speed === 0.5 ? "Normal" : "Rápido"}
@@ -139,18 +140,20 @@ export default function Carousel({ imagesList }: CarouselProps) {
           </div>
 
           <div className="flex gap-2">
-            <button
+            <Button
+              icon="fa fa-angle-left fa-lg" aria-hidden="true" rounded
               onClick={() => (containerRef.current!.scrollLeft -= 300)}
-              className="p-2 bg-yellow-600 text-black border-round hover:bg-yellow-500"
+              className="selected-button"
             >
               {/* ChevronLeft */}
-            </button>
-            <button
+            </Button>
+            <Button
+              icon="fa fa-angle-right fa-lg" aria-hidden="true" rounded
               onClick={() => (containerRef.current!.scrollLeft += 300)}
-              className="p-2 bg-yellow-600 text-black border-round hover:bg-yellow-500"
+              className="selected-button"
             >
               {/* ChevronRight */}
-            </button>
+            </Button>
           </div>
         </div>
 
@@ -223,19 +226,24 @@ export default function Carousel({ imagesList }: CarouselProps) {
                   </div>
                 </div>
 
-                <div className="flex gap-2 mt-auto">
-                  <button
-                    onClick={() => navigate(`/producto/${product.id}`)}
-                    className="p-2 border-2 border-yellow-600 text-yellow-600 border-round flex-1"
-                  >
-                    Ver Detalles
-                  </button>
-                  <button
-                    onClick={() => handleAddToPack(product)}
-                    className="p-2 bg-yellow-600 text-black border-round flex-1"
-                  >
-                    Agregar
-                  </button>
+                <div className="flex gap-2 mt-auto justify-content-between">
+                  <div className="col-6">
+                    <Button
+                      label="Ver detalles"
+                      rounded
+                      onClick={() => navigate(`/producto/${product.id}`)}
+                      className="pl-4 pr-4 unselected-button"
+                    >
+                    </Button>
+                  </div>
+                  <div className="col-6">
+                    <Button rounded
+                      onClick={() => handleAddToPack(product)}
+                      className="pl-4 pr-4  selected-button"
+                    >
+                      <span><i className="fa fa-shopping-cart fa-lg filled-icon" aria-hidden="true"></i> Agregar</span>
+                    </Button>
+                  </div>
                 </div>
               </div>
             </motion.div>
