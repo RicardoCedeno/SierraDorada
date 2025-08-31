@@ -77,28 +77,28 @@ export default function Carousel({ imagesList }: CarouselProps) {
   };
 
   // Touch start
-const handleTouchStart = (e: React.TouchEvent) => {
-  setIsDragging(true);
-  setAutoScroll(false);
-  const touch = e.touches[0];
-  setStartX(touch!.pageX - containerRef.current!.offsetLeft);
-  setScrollLeft(containerRef.current!.scrollLeft);
-};
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setIsDragging(true);
+    setAutoScroll(false);
+    const touch = e.touches[0];
+    setStartX(touch!.pageX - containerRef.current!.offsetLeft);
+    setScrollLeft(containerRef.current!.scrollLeft);
+  };
 
-// Touch move
-const handleTouchMove = (e: React.TouchEvent) => {
-  if (!isDragging || !containerRef.current) return;
-  const touch = e.touches[0];
-  const x = touch!.pageX - containerRef.current.offsetLeft;
-  const walk = (x - startX) * 2;
-  containerRef.current.scrollLeft = scrollLeft - walk;
-};
+  // Touch move
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (!isDragging || !containerRef.current) return;
+    const touch = e.touches[0];
+    const x = touch!.pageX - containerRef.current.offsetLeft;
+    const walk = (x - startX) * 2;
+    containerRef.current.scrollLeft = scrollLeft - walk;
+  };
 
-// Touch end
-const handleTouchEnd = () => {
-  setIsDragging(false);
-  setAutoScroll(true);
-};
+  // Touch end
+  const handleTouchEnd = () => {
+    setIsDragging(false);
+    setAutoScroll(true);
+  };
 
   const handleSpeedChange = (speed: number) => setScrollSpeed(speed);
 
@@ -128,11 +128,10 @@ const handleTouchEnd = () => {
               <button
                 key={speed}
                 onClick={() => handleSpeedChange(speed)}
-                className={`p-2 border-round font-bold ${
-                  scrollSpeed === speed
-                    ? "bg-yellow-600 text-black shadow-2"
-                    : "p-button-outlined text-yellow-600 border-yellow-600"
-                }`}
+                className={`p-2 border-round font-bold ${scrollSpeed === speed
+                  ? "bg-yellow-600 text-black shadow-2"
+                  : "p-button-outlined text-yellow-600 border-yellow-600"
+                  }`}
               >
                 {speed === 0.25 ? "Lento" : speed === 0.5 ? "Normal" : "Rápido"}
               </button>
@@ -158,7 +157,7 @@ const handleTouchEnd = () => {
         {/* Carrusel */}
         <div
           ref={containerRef}
-          className="flex overflow-x-hidden cursor-grab gap-3 "
+          className="flex overflow-x-hidden cursor-grab gap-3 carousel"
           onMouseDown={handleMouseDown}
           onMouseUp={handleMouseUp}
           onMouseLeave={handleMouseUp}
@@ -167,7 +166,7 @@ const handleTouchEnd = () => {
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
 
-          
+
         >
           {clonedProducts.map((product, index) => (
             <motion.div
@@ -175,9 +174,8 @@ const handleTouchEnd = () => {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: index * 0.05 }}
-              className={`surface-800 border-round shadow-3 flex flex-column flex-none w:12: sm:w-6 md:w-4 ${
-                product.id === "807400c9-d68c-4721-8cc6-8635802fa258" ? "border-2 border-yellow-600" : ""
-              }`}
+              className={`surface-800 border-round shadow-3 flex flex-column flex-none w:12: sm:w-6 md:w-4 ${product.id === "807400c9-d68c-4721-8cc6-8635802fa258" ? "border-2 border-yellow-600" : ""
+                }`}
             >
               <div className="relative w-full">
                 <img
@@ -190,10 +188,10 @@ const handleTouchEnd = () => {
               </div>
 
               <div className="p-4 flex flex-column">
-                <div className="flex flex-row gap-2 align-items-center mb-2">
-                  <div className="col-6">
-                    <div className="carousel-title">{product.name}</div>
-                    <p className="text-yellow-600">${product.price.toLocaleString()}</p>
+                <div className="flex flex-row align-items-center mb-2">
+                  <div className="col-6 flex flex-column justify-content-around">
+                    <div className="carousel-title font-dorsa image-title">{product.name}</div>
+                    <span className="image-price">${product.price.toLocaleString()}</span>
                   </div>
                   <div
                     className="col-6 w-2rem h-2rem border-circle border-4 border-yellow-600"
@@ -202,8 +200,28 @@ const handleTouchEnd = () => {
                   />
                 </div>
 
-                <p className="text-white-600 text-sm mb-2">{product.inspiration}</p>
-                <p className="text-white text-sm mb-4">{product.description}</p>
+                <p className="text-sm mb-2 image-inspiration font-barlow">{product.inspiration}</p>
+                <p className="text-sm mb-4 image-description font-barlow">{product.description}</p>
+
+                <div className="flex flex-row gap-8">
+                  <div className="flex flex-column gap-3">
+                    <div className="font-dorsa-condensed image-details">Detalles</div>
+                    <div className="font-barlow image-details-text">ABV: {product.details.abv}%</div>
+                    <div className="font-barlow image-details-text">IBU: {product.details.ibu}</div>
+                    <div className="font-barlow image-details-text">temp: {product.details.temperatureRange} °C</div>
+                  </div>
+                  <div>
+                    <div className="flex flex-column gap-3">
+                      <div className="font-dorsa-condensed image-details">Maridaje</div>
+                      {product.pairing.map((item, index) => (
+                        <div key={index}>
+                          <div className="font-barlow image-details-text">{item.image}</div>
+                          <div className="font-barlow image-details-text">{item.name}</div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
 
                 <div className="flex gap-2 mt-auto">
                   <button

@@ -2,9 +2,10 @@ body {
   font-family: 'Dorsa', sans-serif;
 }
 
+$gold-color: #B3A269;
+$white-color: #E5E1E6;
 /* Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Dorsa&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;700&family=Barlow+Condensed:wght@400;700&display=swap');
+
 
 .carousel-title {
   font-size: 50px;
@@ -19,4 +20,37 @@ body {
 .font-barlow-condensed {
   font-family: 'Barlow Condensed', sans-serif;
   font-weight: 400;
+}
+
+.image-title{
+  font-size: 3rem;
+}
+
+.image-price{
+  font-size: 2rem;
+  color: $gold-color
+}
+
+.image-inspiration{
+  font-size: 1.5rem;
+  color: $gold-color
+}
+
+.image-description{
+  font-size: 1.8rem;
+  color: $white-color
+}
+
+.image-details{
+  font-size: 2.3rem;
+  color: $gold-color
+}
+
+.image-details-text{
+  font-size: 1rem;
+  color: $white-color
+}
+
+.carousel{
+  cursor: pointer;
 }
