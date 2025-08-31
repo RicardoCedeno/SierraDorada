@@ -5,13 +5,12 @@ import './product-detail.scss'
 
 function ProductDetails() {
     console.log("product")
-    const { id } = useParams();
     const location = useLocation();
     const product: imageCarousel = location.state?.product
     return (
         <div>
             <div className="flex flex-row justify-content-between">
-                <div className="col-5 w-5"><Image src={product.imageUrl} width="100%"></Image></div>
+                <div className="col-5 w-5"><Image src={product.imageUrl} alt={product.name} width="100%"></Image></div>
                 <div className="col-7">
                     <div className="font-barlow-condensed text-7xl">{product.name}</div>
                     <div className="font-roboto gold-text text-xl">{product.inspiration}</div>
