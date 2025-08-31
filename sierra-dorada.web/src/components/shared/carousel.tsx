@@ -106,14 +106,14 @@ export default function Carousel({ imagesList }: CarouselProps) {
     if (customPack.length < 4) setCustomPack([...customPack, product]);
   };
 
-  const handleRemoveFromPack = (index: number) => {
-    setCustomPack(customPack.filter((_, i) => i !== index));
-  };
+  // const handleRemoveFromPack = (index: number) => {
+  //   setCustomPack(customPack.filter((_, i) => i !== index));
+  // };
 
-  const calculatePackPrice = () => {
-    const subtotal = customPack.reduce((sum, p) => sum + p.price, 0);
-    return subtotal * 0.75; // 25% descuento
-  };
+  // const calculatePackPrice = () => {
+  //   const subtotal = customPack.reduce((sum, p) => sum + p.price, 0);
+  //   return subtotal * 0.75; // 25% descuento
+  // };
 
   return (
     <div className="p-6 surface-900 w-full">
