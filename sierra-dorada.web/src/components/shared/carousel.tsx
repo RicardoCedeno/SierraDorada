@@ -208,7 +208,7 @@ export default function Carousel({ imagesList }: CarouselProps) {
                     <div className="font-dorsa-condensed image-details">Detalles</div>
                     <div className="font-barlow image-details-text">ABV: {product.details.abv}%</div>
                     <div className="font-barlow image-details-text">IBU: {product.details.ibu}</div>
-                    <div className="font-barlow image-details-text">temp: {product.details.temperatureRange} °C</div>
+                    <div className="font-barlow image-details-text">🌡️: {product.details.temperatureRange} °C</div>
                   </div>
                   <div>
                     <div className="flex flex-column gap-3">
