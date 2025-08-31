@@ -9,6 +9,10 @@ export interface imageCarousel{
     imageUrl: string;
     colorHex: string;
     colorName: string;
+    fullDescription: string;
+    legend: string;
+    process: string;
+    characteristics: characteristics
 }
 
 export interface detailImageCarousel{
@@ -20,4 +24,11 @@ export interface detailImageCarousel{
 export interface pairingImageCarousel{
     image: string;
     name: string;
+}
+
+export interface characteristics{
+    color: string;
+    smell: string;
+    taste: string;
+    pairing: string;
 }

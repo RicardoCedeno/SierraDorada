@@ -1,4 +1,5 @@
 $white-color: #E5E1E6;
+$gold-color: #B3A269;
 .text-style-2 {
     color: #e5e1e6cc;
     font-size: 20px;
@@ -18,4 +19,12 @@ $white-color: #E5E1E6;
 .title-section{
     font-size: 3rem;
     font-weight: 100;
+}
+
+.correct-height{
+    max-height: 250px;
+}
+
+.normal-height{
+    max-height: 100%;
 }

@@ -168,8 +168,6 @@ export default function Carousel({ imagesList }: CarouselProps) {
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
-
-
         >
           {clonedProducts.map((product, index) => (
             <motion.div
@@ -231,7 +229,7 @@ export default function Carousel({ imagesList }: CarouselProps) {
                     <Button
                       label="Ver detalles"
                       rounded
-                      onClick={() => navigate(`/producto/${product.id}`)}
+                      onClick={() => navigate(`/producto/${product.id}`, {state: {product}})}
                       className="pl-4 pr-4 unselected-button"
                     >
                     </Button>

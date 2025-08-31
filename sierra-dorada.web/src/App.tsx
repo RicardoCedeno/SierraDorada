@@ -12,6 +12,7 @@ import { Sidebar } from 'primereact/sidebar';
 import { Button } from 'primereact/button';
 import "primereact/resources/themes/lara-light-cyan/theme.css";
 import { useState } from 'react';
+import ProductDetails from './components/products/product-details/product-detail';
 
 function App() {
   const [visible, setVisible] = useState(false);
@@ -61,6 +62,8 @@ function App() {
           <Route path="/Contacto" element={<Contact />} />
           <Route path="/Carrito" element={<Cart />} />
           <Route path="/Login" element={<Login />} />
+
+          <Route path="/Producto/:id" element={<ProductDetails></ProductDetails>}></Route>
         </Routes>
       </div>
     </BrowserRouter>
