@@ -48,3 +48,36 @@ nav {
     }
   }
   
+@import url('https://fonts.googleapis.com/css2?family=Dorsa&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;700&family=Barlow+Condensed:wght@400;700&display=swap');
+
+.font-dorsa {
+  font-family: 'Dorsa', sans-serif;
+  // font-weight: 400; /* igual que Tailwind */
+  letter-spacing: 0.4rem; /* igual que Tailwind */
+  line-height: 1; /* ajustar si es necesario */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+
+.font-barlow {
+  font-family: 'Barlow', sans-serif;
+  font-weight: 400; /* normal */
+  letter-spacing: 0.05rem; /* ajusta a tu gusto */
+  line-height: 1.2; /* ajusta si quieres más espacio entre líneas */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.font-barlow-condensed {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 400;
+}
+
+
+.text-menu{
+  font-size: 2rem;
+  font-weight: 500;
+}

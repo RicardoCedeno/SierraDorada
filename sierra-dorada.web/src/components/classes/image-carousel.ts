@@ -1,11 +1,14 @@
 export interface imageCarousel{
-    title: string;
+    id: string;
+    name: string;
     price: number;
     inspiration: string;
     description: string;
     details: detailImageCarousel
     pairing: pairingImageCarousel[]
-    imageUrl: string
+    imageUrl: string;
+    colorHex: string;
+    colorName: string;
 }
 
 export interface detailImageCarousel{

@@ -29,8 +29,8 @@ function App() {
 
         {/* Sidebar solo para móviles */}
         <Sidebar visible={visible} onHide={() => setVisible(false)}>
-          <nav className="flex flex-column gap-3">
-            <Link to="/">Inicio</Link>
+          <nav className="flex flex-column gap-3 font-dorsa text-menu">
+            <Link className='font-dorsa text-menu' to="/">Inicio</Link>
             <Link to="/Productos">Productos</Link>
             <Link to="/Nuestra-leyenda">Nuestra leyenda</Link>
             <Link to="/Servicios">Servicios</Link>
@@ -42,7 +42,7 @@ function App() {
         </Sidebar>
 
         {/* Menú normal visible solo en escritorio */}
-        <nav className="hidden md:flex gap-3 mb-3">
+        <nav className="hidden md:flex gap-3 mb-3 font-dorsa text-menu">
           <Link to="/">Inicio</Link>
           <Link to="/Productos">Productos</Link>
           <Link to="/Nuestra-leyenda">Nuestra leyenda</Link>

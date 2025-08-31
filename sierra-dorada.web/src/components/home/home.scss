@@ -19,6 +19,10 @@ $white-color: #E5E1E6;
 //     margin: 0; /* aunque ya lo hiciste con el reset */
 //   }
 
+img{
+  border-radius: 10px;
+}
+
 .title-container {
   display: flex;
   flex-direction: column;
@@ -35,10 +39,28 @@ h1 {
 
 .main-text {
   color: #B3A269;
+  font-size: 10rem;
+  font-weight: 800;
+}
+
+.image-title{
+  font-size: 2rem;
+  font-weight: 800;
 }
 
 .text {
   text-align: center;
+  font-size: 1rem;
+}
+
+.title-section{
+  font-size: 4rem;
+  font-weight: 600;
+}
+
+.subtitle-section{
+  font-size: 2rem;
+  font-weight: 600;
 }
 
 .main-text-secondary {
@@ -46,6 +68,7 @@ h1 {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text; // Para compatibilidad adicional
+  font-size: 8rem;
 
 }
 

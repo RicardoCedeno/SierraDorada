@@ -1,130 +1,228 @@
 import { useRef, useState, useEffect } from "react";
-import "./carousel.scss";
+import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 import { imageCarousel } from "../classes/image-carousel";
+import './carousel.scss'
 
-
-type carouselProps = {
+type CarouselProps = {
   imagesList: imageCarousel[];
-}
-export default function Carousel({ imagesList }: carouselProps) {
-  const items = imagesList;
-  const trackRef = useRef<HTMLDivElement>(null);
+};
 
+export default function Carousel({ imagesList }: CarouselProps) {
+  const navigate = useNavigate();
+  const [scrollSpeed, setScrollSpeed] = useState(0.5);
+  const [autoScroll, setAutoScroll] = useState(true);
   const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
 
-  const offsetRef = useRef(0); // posición actual
-  const lastXRef = useRef(0);  // última posición del mouse
-  const velocityRef = useRef(0); // velocidad de arrastre
-  const speed = 0.5; // velocidad de auto-scroll
-  const inertiaRef = useRef<number | null>(null);
+  const [customPack, setCustomPack] = useState<typeof imagesList[0][]>([]);
+  const containerRef = useRef<HTMLDivElement>(null);
 
-  // animación automática
+  // El clon inicial solo duplica la lista para efecto de loop
+  const clonedProducts = [...imagesList, ...imagesList];
+
+  // Scroll automático
   useEffect(() => {
-    let rafId: any;
+    if (!containerRef.current || !autoScroll) return;
 
-    const animate = () => {
-      if (!isDragging && velocityRef.current === 0) {
-        let next = offsetRef.current - speed;
-        const trackWidth = trackRef.current!.scrollWidth / 2;
+    const container = containerRef.current;
+    let lastTime = performance.now();
+    let animationFrameId: number;
 
-        if (Math.abs(next) >= trackWidth) {
-          next = 0;
+    const animate = (currentTime: number) => {
+      const deltaTime = currentTime - lastTime;
+      lastTime = currentTime;
+
+      if (!isDragging) {
+        const baseSpeed = 0.5;
+        const speedMultiplier =
+          scrollSpeed === 0.25 ? 0.5 : scrollSpeed === 1 ? 1.25 : 1;
+
+        container.scrollLeft += baseSpeed * speedMultiplier * deltaTime * 0.1;
+
+        // Loop infinito
+        if (container.scrollLeft >= container.scrollWidth / 2) {
+          container.scrollLeft = 0;
         }
-
-        offsetRef.current = next;
-        trackRef.current!.style.transform = `translateX(${next}px)`;
       }
-      rafId = requestAnimationFrame(animate);
+
+      animationFrameId = requestAnimationFrame(animate);
     };
 
-    rafId = requestAnimationFrame(animate);
-    return () => cancelAnimationFrame(rafId);
-  }, [isDragging]);
+    animationFrameId = requestAnimationFrame(animate);
 
-  const handleMouseDown = (e: any) => {
-    e.preventDefault();
+    return () => cancelAnimationFrame(animationFrameId);
+  }, [scrollSpeed, autoScroll, isDragging, imagesList]);
+
+  // Drag
+  const handleMouseDown = (e: React.MouseEvent) => {
     setIsDragging(true);
-    cancelAnimationFrame(inertiaRef.current!); // cortar inercia previa
-    lastXRef.current = e.clientX;
-    velocityRef.current = 0;
+    setAutoScroll(false);
+    setStartX(e.pageX - containerRef.current!.offsetLeft);
+    setScrollLeft(containerRef.current!.scrollLeft);
   };
 
-  const handleMouseMove = (e: any) => {
+  const handleMouseMove = (e: React.MouseEvent) => {
     if (!isDragging) return;
     e.preventDefault();
-
-    const delta = e.clientX - lastXRef.current;
-    offsetRef.current += delta;
-    trackRef.current!.style.transform = `translateX(${offsetRef.current}px)`;
-
-    velocityRef.current = delta; // guardar velocidad del último frame
-    lastXRef.current = e.clientX;
-  };
-
-  const startInertia = () => {
-    const friction = 0.95; // qué tan rápido se frena (0.9 = más largo, 0.98 = muy largo)
-    const minVelocity = 0.1; // umbral para detenerse
-
-    const step = () => {
-      if (Math.abs(velocityRef.current) > minVelocity) {
-        offsetRef.current += velocityRef.current;
-        trackRef.current!.style.transform = `translateX(${offsetRef.current}px)`;
-        velocityRef.current *= friction; // aplicar freno
-        inertiaRef.current = requestAnimationFrame(step);
-      } else {
-        velocityRef.current = 0;
-      }
-    };
-
-    inertiaRef.current = requestAnimationFrame(step);
+    const x = e.pageX - containerRef.current!.offsetLeft;
+    const walk = (x - startX) * 2;
+    containerRef.current!.scrollLeft = scrollLeft - walk;
   };
 
   const handleMouseUp = () => {
     setIsDragging(false);
-    startInertia(); // lanzar inercia al soltar
+    setAutoScroll(true);
   };
 
-  const handleMouseLeave = () => {
-    if (isDragging) {
-      setIsDragging(false);
-      startInertia();
-    }
+  // Touch start
+const handleTouchStart = (e: React.TouchEvent) => {
+  setIsDragging(true);
+  setAutoScroll(false);
+  const touch = e.touches[0];
+  setStartX(touch!.pageX - containerRef.current!.offsetLeft);
+  setScrollLeft(containerRef.current!.scrollLeft);
+};
+
+// Touch move
+const handleTouchMove = (e: React.TouchEvent) => {
+  if (!isDragging || !containerRef.current) return;
+  const touch = e.touches[0];
+  const x = touch!.pageX - containerRef.current.offsetLeft;
+  const walk = (x - startX) * 2;
+  containerRef.current.scrollLeft = scrollLeft - walk;
+};
+
+// Touch end
+const handleTouchEnd = () => {
+  setIsDragging(false);
+  setAutoScroll(true);
+};
+
+  const handleSpeedChange = (speed: number) => setScrollSpeed(speed);
+
+  const handleAddToPack = (product: typeof imagesList[0]) => {
+    if (customPack.length < 4) setCustomPack([...customPack, product]);
+  };
+
+  const handleRemoveFromPack = (index: number) => {
+    setCustomPack(customPack.filter((_, i) => i !== index));
+  };
+
+  const calculatePackPrice = () => {
+    const subtotal = customPack.reduce((sum, p) => sum + p.price, 0);
+    return subtotal * 0.75; // 25% descuento
   };
 
   return (
-    <div
-      className="carousel-container overflow-hidden select-none"
-      onMouseDown={handleMouseDown}
-      onMouseMove={handleMouseMove}
-      onMouseUp={handleMouseUp}
-      onMouseLeave={handleMouseLeave}
-    >
-      <div className="carousel-track flex" ref={trackRef}>
-        {[...items, ...items].map((item, idx) => (
-          <div key={idx} className="carousel-item border-round shadow-2">
-            <img
-              src={item.imageUrl}
-              alt={`slide-${idx}`}
-              className="object-cover pointer-events-none"
-            />
-            <div>{item.title}</div>
-            <div>${item.price}</div>
-            <div>{item.inspiration}</div>
-            <div>{item.description}</div>
-            <div className="flex flex-row">
-              <div>
-                <div>DETALLES: {item.details.abv}%</div>
-                <div>IBU: {item.details.ibu}</div>
-                <div>TEMP: {item.details.temperatureRange}</div>
-              </div>
-              <div className="flex flex-column">
-                {item.pairing.map((pair, idx) => (
-                  <div key={idx}>{pair.name}</div>
-                ))}
-              </div>
-            </div>
+    <div className="p-6 surface-900 w-full">
+      <div className="grid justify-content-center">
+        {/* Título */}
+
+
+        {/* Botones de velocidad y scroll manual */}
+        <div className="col-12 flex flex-column sm:flex-row justify-content-between align-items-center mb-4">
+          <div className="flex gap-2">
+            {[0.10, 0.5, 1].map((speed) => (
+              <button
+                key={speed}
+                onClick={() => handleSpeedChange(speed)}
+                className={`p-2 border-round font-bold ${
+                  scrollSpeed === speed
+                    ? "bg-yellow-600 text-black shadow-2"
+                    : "p-button-outlined text-yellow-600 border-yellow-600"
+                }`}
+              >
+                {speed === 0.25 ? "Lento" : speed === 0.5 ? "Normal" : "Rápido"}
+              </button>
+            ))}
           </div>
-        ))}
+
+          <div className="flex gap-2">
+            <button
+              onClick={() => (containerRef.current!.scrollLeft -= 300)}
+              className="p-2 bg-yellow-600 text-black border-round hover:bg-yellow-500"
+            >
+              {/* ChevronLeft */}
+            </button>
+            <button
+              onClick={() => (containerRef.current!.scrollLeft += 300)}
+              className="p-2 bg-yellow-600 text-black border-round hover:bg-yellow-500"
+            >
+              {/* ChevronRight */}
+            </button>
+          </div>
+        </div>
+
+        {/* Carrusel */}
+        <div
+          ref={containerRef}
+          className="flex overflow-x-hidden cursor-grab gap-3 "
+          onMouseDown={handleMouseDown}
+          onMouseUp={handleMouseUp}
+          onMouseLeave={handleMouseUp}
+          onMouseMove={handleMouseMove}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+
+          
+        >
+          {clonedProducts.map((product, index) => (
+            <motion.div
+              key={`${product.id}-${index}`}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: index * 0.05 }}
+              className={`surface-800 border-round shadow-3 flex flex-column flex-none w:12: sm:w-6 md:w-4 ${
+                product.id === "807400c9-d68c-4721-8cc6-8635802fa258" ? "border-2 border-yellow-600" : ""
+              }`}
+            >
+              <div className="relative w-full">
+                <img
+                  src={product.imageUrl}
+                  alt={product.name}
+                  className="w-full object-cover border-round max-h-21rem sm:max-h-11rem md:max-h-16rem"
+                  draggable={false}
+
+                />
+              </div>
+
+              <div className="p-4 flex flex-column">
+                <div className="flex flex-row gap-2 align-items-center mb-2">
+                  <div className="col-6">
+                    <div className="carousel-title">{product.name}</div>
+                    <p className="text-yellow-600">${product.price.toLocaleString()}</p>
+                  </div>
+                  <div
+                    className="col-6 w-2rem h-2rem border-circle border-4 border-yellow-600"
+                    style={{ backgroundColor: product.colorHex }}
+                    title={product.colorName}
+                  />
+                </div>
+
+                <p className="text-white-600 text-sm mb-2">{product.inspiration}</p>
+                <p className="text-white text-sm mb-4">{product.description}</p>
+
+                <div className="flex gap-2 mt-auto">
+                  <button
+                    onClick={() => navigate(`/producto/${product.id}`)}
+                    className="p-2 border-2 border-yellow-600 text-yellow-600 border-round flex-1"
+                  >
+                    Ver Detalles
+                  </button>
+                  <button
+                    onClick={() => handleAddToPack(product)}
+                    className="p-2 bg-yellow-600 text-black border-round flex-1"
+                  >
+                    Agregar
+                  </button>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </div>
   );

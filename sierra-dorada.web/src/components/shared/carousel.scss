@@ -1,26 +1,22 @@
-.carousel-container {
-    width: 95vw;
-    overflow: hidden;
-    cursor: pointer;
-  }
-  
-  .carousel-track {
-    display: flex;
-    gap: 4rem;
-    width: max-content;
-    will-change: transform;
-  }
-  
-  .carousel-item {
-    flex: 0 0 auto;
-    width: 25vw;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .carousel-item img {
-    height: 250px;
-    width: 100%;
-    object-fit: cover;
-  }
-  
+body {
+  font-family: 'Dorsa', sans-serif;
+}
+
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Dorsa&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;700&family=Barlow+Condensed:wght@400;700&display=swap');
+
+.carousel-title {
+  font-size: 50px;
+}
+
+
+.font-barlow {
+  font-family: 'Barlow', sans-serif;
+  font-weight: 400;
+}
+
+.font-barlow-condensed {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 400;
+}

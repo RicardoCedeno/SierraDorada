@@ -12,6 +12,7 @@
     "@types/react-dom": "^19.1.9",
     "axios": "^1.9.0",
     "font-awesome": "^4.7.0",
+    "framer-motion": "^12.23.12",
     "primeflex": "^4.0.0",
     "primereact": "^10.9.6",
     "react": "^19.1.0",
