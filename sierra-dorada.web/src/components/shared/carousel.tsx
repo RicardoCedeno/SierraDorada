@@ -187,14 +187,14 @@ export default function Carousel({ imagesList }: CarouselProps) {
                 />
               </div>
 
-              <div className="p-4 flex flex-column">
-                <div className="flex flex-row align-items-center mb-2">
-                  <div className="col-10 sm:col-11 flex flex-column justify-content-between sm:justify-content-around">
-                    <div className="carousel-title font-dorsa image-title">{product.name}</div>
-                    <span className="image-price">${product.price.toLocaleString()}</span>
+              <div className="p-2 flex flex-column">
+                <div className="col-11 flex flex-row align-items-center mb-2">
+                  <div className="col-11 flex flex-column justify-content-between sm:justify-content-around">
+                    <div className="text-lg md:text-2xl lg:text-6xl font-dorsa image-title">{product.name}</div>
+                    <span className="text-2xl md:text-1xl image-price">${product.price.toLocaleString()}</span>
                   </div>
                   <div
-                    className="col-2 sm:col-1 w-2rem h-2rem border-circle border-4 border-yellow-600"
+                    className="col-1 w-1rem sm:w-1rem md:w-2rem h-1rem sm:h-1rem md:h-2rem border-circle border-4 border-yellow-600"
                     style={{ backgroundColor: product.colorHex }}
                     title={product.colorName}
                   />

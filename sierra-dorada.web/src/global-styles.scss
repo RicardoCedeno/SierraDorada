@@ -50,6 +50,7 @@ nav {
   
 @import url('https://fonts.googleapis.com/css2?family=Dorsa&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;700&family=Barlow+Condensed:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
 .font-dorsa {
   font-family: 'Dorsa', sans-serif;
@@ -76,8 +77,24 @@ nav {
   font-weight: 400;
 }
 
+.font-roboto {
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+}
+
+.font-roboto-condensed {
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+}
+
 
 .text-menu{
-  font-size: 2rem;
+  font-size: 1.2rem;
   font-weight: 500;
 }

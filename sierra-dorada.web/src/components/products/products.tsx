@@ -20,13 +20,13 @@ function Products() {
         <div>
             <div className='mt-4 bt-4'>
                 <div className='font-barlow-condensed title-section'>Nuestros Productos</div>
-                <div className='text-style-2 font-barlow'>Descubre nuestra selección de cervezas artesanales, cada una con su propia historia y carácter único.</div>
+                <div className='text-style-2 font-roboto'>Descubre nuestra selección de cervezas artesanales, cada una con su propia historia y carácter único.</div>
             </div>
 
             <div className='mt-4 bt-4 flex flex-column justify-content-center align-items-center'>
                 <div className='small-title font-barlow-condensed'>NUESTRAS CERVEZAS</div>
-                <div className='medium-title font-barlow text-center'>TESOROS LÍQUIDOS</div>
-                <div className='text-style-2 w-6 font-barlow text-center'>Cada cerveza es una obra maestra artesanal que honra a las deidades Muiscas, elaborada con los mejores ingredientes y años de experiencia.</div>
+                <div className='medium-title font-roboto text-center'>TESOROS LÍQUIDOS</div>
+                <div className='text-style-2 w-6 font-roboto text-center'>Cada cerveza es una obra maestra artesanal que honra a las deidades Muiscas, elaborada con los mejores ingredientes y años de experiencia.</div>
             </div>
             <div className='flex flex-column justify-content-center align-items-center'>
                 <Carousel imagesList={imagesCarousel}></Carousel>
