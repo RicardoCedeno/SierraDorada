@@ -190,8 +190,8 @@ export default function Carousel({ imagesList }: CarouselProps) {
               <div className="p-2 flex flex-column">
                 <div className="col-11 flex flex-row align-items-center mb-2">
                   <div className="col-11 flex flex-column justify-content-between sm:justify-content-around">
-                    <div className="text-lg md:text-2xl lg:text-6xl font-dorsa image-title">{product.name}</div>
-                    <span className="text-2xl md:text-1xl image-price">${product.price.toLocaleString()}</span>
+                    <div className="text-lg md:text-xl lg:text-3xl font-barlow image-title">{product.name}</div>
+                    <span className="text-2xl md:text-xl image-price font-roboto">${product.price.toLocaleString()}</span>
                   </div>
                   <div
                     className="col-1 w-1rem sm:w-1rem md:w-2rem h-1rem sm:h-1rem md:h-2rem border-circle border-4 border-yellow-600"
@@ -200,23 +200,23 @@ export default function Carousel({ imagesList }: CarouselProps) {
                   />
                 </div>
 
-                <p className="text-sm mb-2 image-inspiration font-barlow">{product.inspiration}</p>
-                <p className="text-sm mb-4 image-description font-barlow">{product.description}</p>
+                <p className="text-sm mb-2 image-inspiration font-roboto">{product.inspiration}</p>
+                <p className="text-sm mb-4 image-description font-roboto">{product.description}</p>
 
                 <div className="flex flex-row gap-8">
                   <div className="flex flex-column gap-3">
-                    <div className="font-dorsa-condensed image-details">Detalles</div>
-                    <div className="font-barlow image-details-text">ABV: {product.details.abv}%</div>
-                    <div className="font-barlow image-details-text">IBU: {product.details.ibu}</div>
-                    <div className="font-barlow image-details-text">🌡️: {product.details.temperatureRange}</div>
+                    <div className="font-barlow-condensed image-details">Detalles</div>
+                    <div className="font-roboto image-details-text">ABV: {product.details.abv}%</div>
+                    <div className="font-roboto image-details-text">IBU: {product.details.ibu}</div>
+                    <div className="font-roboto image-details-text">🌡️: {product.details.temperatureRange}</div>
                   </div>
                   <div>
                     <div className="flex flex-column gap-3">
-                      <div className="font-dorsa-condensed image-details">Maridaje</div>
+                      <div className="font-barlow-condensed image-details">Maridaje</div>
                       {product.pairing.map((item, index) => (
-                        <div key={index}>
-                          <div className="font-barlow image-details-text">{item.image}</div>
-                          <div className="font-barlow image-details-text">{item.name}</div>
+                        <div key={index} className="flex flex-row gap-1">
+                          <div className="font-roboto image-details-text">{item.image}</div>
+                          <div className="font-roboto image-details-text">{item.name}</div>
                         </div>
                       ))}
                     </div>
