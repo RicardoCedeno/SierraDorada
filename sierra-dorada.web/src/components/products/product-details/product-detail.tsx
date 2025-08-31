@@ -1,4 +1,4 @@
-import { useLocation, useParams } from "react-router-dom"
+import { useLocation } from "react-router-dom"
 import { imageCarousel } from "../../classes/image-carousel";
 import { Image } from 'primereact/image';
 import './product-detail.scss'
