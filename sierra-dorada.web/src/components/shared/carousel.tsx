@@ -174,14 +174,14 @@ export default function Carousel({ imagesList }: CarouselProps) {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: index * 0.05 }}
-              className={`surface-800 border-round shadow-3 flex flex-column flex-none w:12: sm:w-6 md:w-4 ${product.id === "807400c9-d68c-4721-8cc6-8635802fa258" ? "border-2 border-yellow-600" : ""
+              className={`surface-800 border-round shadow-3 flex flex-column flex-none w-full sm:w-6 md:w-4 ${product.id === "807400c9-d68c-4721-8cc6-8635802fa258" ? "border-2 border-yellow-600" : ""
                 }`}
             >
               <div className="relative w-full">
                 <img
                   src={product.imageUrl}
                   alt={product.name}
-                  className="w-full object-cover border-round max-h-21rem sm:max-h-11rem md:max-h-16rem"
+                  className="w-full object-cover border-round max-h-10rem sm:max-h-11rem md:max-h-10rem"
                   draggable={false}
 
                 />
@@ -189,12 +189,12 @@ export default function Carousel({ imagesList }: CarouselProps) {
 
               <div className="p-4 flex flex-column">
                 <div className="flex flex-row align-items-center mb-2">
-                  <div className="col-6 flex flex-column justify-content-around">
+                  <div className="col-10 sm:col-11 flex flex-column justify-content-between sm:justify-content-around">
                     <div className="carousel-title font-dorsa image-title">{product.name}</div>
                     <span className="image-price">${product.price.toLocaleString()}</span>
                   </div>
                   <div
-                    className="col-6 w-2rem h-2rem border-circle border-4 border-yellow-600"
+                    className="col-2 sm:col-1 w-2rem h-2rem border-circle border-4 border-yellow-600"
                     style={{ backgroundColor: product.colorHex }}
                     title={product.colorName}
                   />
