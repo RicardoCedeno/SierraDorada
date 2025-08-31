@@ -68,7 +68,7 @@ function Products() {
                 {products.map((product, index) => (
                     <div key={product.id} className="flex flex-column col-12 sm:col-6 md:col-3 gap-3">
                         <div className='product-container pb-5 h-full'>
-                            <div className=''><img className='w-full object-cover border-round max-h-10rem sm:max-h-11rem md:max-h-10rem' width='100%' src={product.imageUrl}></img></div>
+                            <div className=''><img className='w-full object-cover border-round max-h-10rem sm:max-h-11rem md:max-h-10rem' width='100%' src={product.imageUrl} alt={product.name}></img></div>
                             <div className='col-11 font-barlow text-2xl'>{product.name}</div>
                             <div className='col-11 font-roboto text-base gold-text'>${product.price}</div>
                             <Button className='selected-button font-roboto col-10 mx-auto' label='Agregar al pack' rounded></Button>
