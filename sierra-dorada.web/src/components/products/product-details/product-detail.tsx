@@ -18,7 +18,7 @@ function ProductDetails() {
                     <div className="font-barlow-condensed text-7xl">{product.name}</div>
                     <div className="font-roboto gold-text text-xl">{product.inspiration}</div>
                     <div className="font-roboto text-xl">{product.fullDescription}</div>
-                    <div className="flex flex-column md:flex-row justify-content-around">
+                    <div className="flex flex-column md:flex-row gap-3 justify-content-center mt-3">
                         <div className="small-square col-12 md:col-3 pt-5 pb-5 text-center flex flex-column gap-3">
                             <div className="gold-text font-barlow-condensed text-xl sm:text-xl">ABV</div>
                             <div className="font-roboto text-2xl">{product.details.abv}%</div>
