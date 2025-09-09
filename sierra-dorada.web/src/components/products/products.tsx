@@ -64,9 +64,9 @@ function Products() {
                 <div className='text-style-2 w-6 font-roboto text-center'>Selecciona tus 4 cervezas favoritas y obtén un 25% de descuento en tu pack personalizado.</div>
             </div>
 
-            <div className='flex flex-row'>
+            <div className='flex flex-column sm:flex-row'>
                 {products.map((product, index) => (
-                    <div key={product.id} className="flex flex-column col-12 sm:col-6 md:col-3 gap-3">
+                    <div key={product.id} className="flex flex-column col-12 sm:col-3 md:col-3 gap-3">
                         <div className='product-container pb-5 h-full'>
                             <div className=''><img className='w-full object-cover border-round max-h-10rem sm:max-h-11rem md:max-h-10rem' width='100%' src={product.imageUrl} alt={product.name}></img></div>
                             <div className='col-11 font-barlow text-2xl'>{product.name}</div>
