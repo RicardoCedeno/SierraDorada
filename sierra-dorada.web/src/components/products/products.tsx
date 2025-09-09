@@ -7,7 +7,6 @@ import Carousel from '../shared/carousel';
 import { imageCarousel } from '../classes/image-carousel'
 import { Button } from "primereact/button";
 import { useState } from 'react'
-import { order } from '../classes/price'
 
 
 const imagesCarousel: imageCarousel[] = [
