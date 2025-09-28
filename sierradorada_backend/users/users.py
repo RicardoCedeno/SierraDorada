@@ -27,3 +27,5 @@ async def create_user(db: AsyncSession, user_in: UserCreate) -> User:
         await db.rollback()
         raise
     return user
+
+

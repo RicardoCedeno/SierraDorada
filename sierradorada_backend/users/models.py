@@ -1,7 +1,6 @@
 from sqlalchemy import Column, Integer, String, Date, DateTime, Text
 from datetime import datetime
-from sierradorada_backend.database import Base
-from sierradorada_backend import models
+from ..database import Base
 
 
 class User(Base):

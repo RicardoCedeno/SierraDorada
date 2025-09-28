@@ -9,7 +9,7 @@ from sqlalchemy.future import select
 from dotenv import load_dotenv
 
 from .models import User
-from .database import get_db
+from ..database import get_db
 from passlib.context import CryptContext
 
 load_dotenv()
