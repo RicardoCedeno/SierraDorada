@@ -2,7 +2,7 @@ sierra-dorada.web/node_modules/
 sierra-dorada.web/dist/
 sierra-dorada.web/build/
 sierra-dorada.web/.env
-sierradorada_backend/.venv
+sierradorada_backend/venv
 # Si quieres ignorar archivos de logs o IDE:
 *.log
 .vscode/
