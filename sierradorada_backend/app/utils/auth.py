@@ -7,8 +7,7 @@ from app.core import config
 from app.core.database import get_db
 from app.models.user_model import User
 
-oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/usuarios/login")
-
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="usuarios/token")
 
 SECRET_KEY = "tu_secreto_super_seguro"
 ALGORITHM = "HS256"

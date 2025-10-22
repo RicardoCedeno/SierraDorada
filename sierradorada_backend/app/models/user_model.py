@@ -1,5 +1,6 @@
 from sqlalchemy import Column, Integer, String
 from app.core.database import Base
+from pydantic import BaseModel
 
 class User(Base):
     __tablename__ = "users"
@@ -13,3 +14,7 @@ class User(Base):
     age = Column(Integer)
     country = Column(String)
     city = Column(String)
+
+class UserLogin(BaseModel):
+    username: str
+    password: str
