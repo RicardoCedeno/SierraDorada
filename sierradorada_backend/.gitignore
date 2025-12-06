@@ -1,0 +1,21 @@
+# Ambientes virtuales
+env/
+venv/
+.env
+.venv
+ENV/
+
+# VS Code
+.vscode/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Otros
+.DS_Store
+*.log
+```
