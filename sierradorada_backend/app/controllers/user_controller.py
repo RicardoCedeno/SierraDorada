@@ -15,7 +15,7 @@ def registro(usuario: UserCreate, db: Session = Depends(get_db)):
 
 @router.post("/login", tags=["Auth"])
 def login(usuario: UserLogin, db: Session = Depends(get_db)):
-    return login_user(db, usuario.email, usuario.pasword)
+    return login_user(db, usuario.username, usuario.password)
 
 @router.get("/usuarios", response_model=list[UserResponse], tags=["Usuarios"])
 def obtener_todos_los_usuarios(

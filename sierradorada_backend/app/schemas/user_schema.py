@@ -14,8 +14,8 @@ class UserCreate(UserBase):
     contrasena: str
 
 class UserLogin(BaseModel):
-    correo: EmailStr
-    contrasena: str
+    username: EmailStr
+    password: str
 
 class UserResponse(UserBase):
     id: int

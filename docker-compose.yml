@@ -1,0 +1,37 @@
+services:
+  db:
+    image: postgres:15
+    container_name: sierra_db
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: sierra123
+      POSTGRES_DB: sierra_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  backend:
+    build: ./sierradorada_backend
+    container_name: sierra_backend
+    restart: always
+    env_file: ./sierradorada_backend/app/.env
+    environment:
+      DATABASE_URL: postgresql://postgres:sierra123@db:5432/sierra_db
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+
+  # frontend:
+  #   build: ./sierra-dorada.web
+  #   container_name: sierra_frontend
+  #   restart: always
+  #   ports:
+  #     - "3000:80"
+  #   depends_on:
+  #     - backend
+
+volumes:
+  postgres_data:
